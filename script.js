@@ -314,6 +314,15 @@ document.getElementById('comment-form').addEventListener('submit', function(e) {
     this.reset();
   }
 });
+document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+});
+setInterval(function() {
+    if (window.outerWidth - window.innerWidth > 160 || 
+        window.outerHeight - window.innerHeight > 160) {
+        document.body.innerHTML = "Acceso restringido";
+    }
+}, 1000);
 
 // ──────────────────────────────
 //  INIT
@@ -322,3 +331,4 @@ renderCards('Todos');
 renderChart();
 configureCommentOrderSelector();
 loadComments();
+
